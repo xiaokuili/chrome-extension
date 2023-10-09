@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Reading time",
+  "name": "GPT文档助手",
   "version": "1.0",
-  "description": "Add the reading time to Chrome Extension documentation articles",
+  "description": "阅读英文文档，基于gpt翻译和解释名词，让阅读过程更加流程",
   "icons": {
     "16": "images/icon-16.png",
     "32": "images/icon-32.png",
