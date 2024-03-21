@@ -1,17 +1,18 @@
-import { useState } from "react"
+import { sendToBackground } from "@plasmohq/messaging"
 
 function IndexPopup() {
-  const [data, setData] = useState("")
-
+  const handle = async () => {
+    const resp = await sendToBackground({
+      name: "ping",
+      body: {
+        id: 123
+      }
+    })
+    console.log(resp)
+  }
   return (
-    <div
-      style={{
-        padding: 16
-      }}>
-      <h2>
-        Welcome 
-      </h2>
-      <p>Enter command/alt+t to translate</p>
+    <div>
+      <button onClick={handle}>Click</button>
     </div>
   )
 }

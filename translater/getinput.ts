@@ -14,8 +14,8 @@ document.addEventListener("keydown", function (event) {
       function (response) {
         // 在这里处理来自后台的响应
         // 例如，将响应内容显示在页面上
-        console.log(response.chatGPTResponse)
-        PrettyGPTResponse(response.chatGPTResponse)
+        console.log(response)
+        PrettyGPTResponse(response)
       }
     )
   }

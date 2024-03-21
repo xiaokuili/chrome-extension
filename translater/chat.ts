@@ -38,15 +38,16 @@ const fetcher = async (text) => {
 }
 
 // 监听来自content.js的消息
-chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "translate") {
-    console.log("接收到")
-    const result = await fetcher(request.data)
-    if (result.choices) {
-      const response = result.choices[0].message.content
-      sendResponse({ chatGPTResponse: response })
-    } else {
-      sendResponse({ chatGPTResponse: result })
-    }
+    sendResponse({ chatGPTResponse: "this is response" })
+
+    // const result = await fetcher(request.data)
+    // if (result.choices) {
+    //   const response = result.choices[0].message.content
+    //   sendResponse({ chatGPTResponse: response })
+    // } else {
+    //   sendResponse({ chatGPTResponse: result })
+    // }
   }
 })
