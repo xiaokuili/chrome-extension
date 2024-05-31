@@ -12,17 +12,22 @@ const fetcher = async (text) => {
   myHeaders.append("Accept", "application/json")
   myHeaders.append(
     "Authorization",
-    "Bearer sk-czidPK9DRTOmMc5j9b845f8dDe3c416881A2E5Fa65E6A038"
+    "Bearer sk-6oGW7PSy3cc56fA8fBD8T3BlBkFJA87Ee7bafe474e748e00"
   )
   myHeaders.append("User-Agent", "Apifox/1.0.0 (https://apifox.com)")
   myHeaders.append("Content-Type", "application/json")
 
   var raw = JSON.stringify({
-    model: "gpt-3.5-turbo-0301",
+    model: "gpt-3.5-turbo",
     messages: [
       {
+        role: "system",
+        content:
+          "你是一个翻译人员，提供的英语内容，充分理解，并且进行翻译成中文"
+      },
+      {
         role: "user",
-        content: "翻译成中文，" + text
+        content: text
       }
     ]
   })
@@ -36,7 +41,7 @@ const fetcher = async (text) => {
 
   try {
     const response = await fetch(
-      "https://oneapi.gptnb.me/v1/chat/completions",
+      "https://aigptx.top//v1/chat/completions",
       requestOptions
     )
     const result = await response.json()
