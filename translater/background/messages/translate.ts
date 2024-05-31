@@ -41,9 +41,10 @@ const fetcher = async (text) => {
 
   try {
     const response = await fetch(
-      "https://aigptx.top//v1/chat/completions",
+      "https://aigptx.top/v1/chat/completions",
       requestOptions
     )
+    console.log("fetcher")
     const result = await response.json()
     return result
   } catch (error) {
