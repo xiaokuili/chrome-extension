@@ -1,7 +1,7 @@
 {
   "name": "fuck-zhihu-login",
   "displayName": "Fuck zhihu login",
-  "version": "0.0.1",
+  "version": "1.2",
   "description": "知乎免登录",
   "author": "lenglengzailuguan@gmail.com",
   "scripts": {
