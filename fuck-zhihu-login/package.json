@@ -25,7 +25,11 @@
   },
   "manifest": {
     "host_permissions": [
-      "https://www.zhihu.com/*"
+      "https://www.zhihu.com/*" 
+    ],
+    "permissions": [
+      "activeTab",
+      "scripting"
     ]
   }
 }
