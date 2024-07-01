@@ -8,9 +8,9 @@ export const config: PlasmoCSConfig = {
 
 window.addEventListener("keydown", async () => {
   const content = window.getSelection().toString().trim()
-  console.log( process.env.PLASMO_PUBLIC_KEY)
+  console.log(process.env.PLASMO_PUBLIC_KEY)
 
-  if (event.altKey && event.key === "t") {
+  if (event.key === "t" && content.length > 0) {
     pretty("正在查询gpt...")
     const resp = await sendToBackground({
       name: "translate",
@@ -24,6 +24,15 @@ window.addEventListener("keydown", async () => {
     resp.choices
       ? pretty(resp.choices[0]?.message?.content)
       : pretty("翻译失败" + resp)
+  }
+
+  if (event.key === "Escape") {
+    var previousDiv = document.getElementById("floating-div-gpt")
+    console.log(previousDiv)
+
+    if (previousDiv) {
+      previousDiv.remove()
+    }
   }
 })
 
