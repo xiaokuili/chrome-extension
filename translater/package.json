@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@plasmohq/messaging": "^0.6.2",
+    "firebase": "^10.12.2",
     "plasmo": "0.85.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
@@ -28,7 +29,15 @@
     "host_permissions": [
       "https://*/*"
     ],
-    "permissions": ["scripting"]
-   
+    "permissions": [
+      "scripting"
+    ],
+    "oauth2": {
+      "client_id": "$PLASMO_PUBLIC_FIREBASE_CLIENT_ID",
+      "scopes": [
+        "https://www.googleapis.com/auth/userinfo.email",
+        "https://www.googleapis.com/auth/userinfo.profile"
+      ]
+    }
   }
 }

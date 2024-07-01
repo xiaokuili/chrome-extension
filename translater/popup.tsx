@@ -1,31 +1,37 @@
-import { sendToBackground } from "@plasmohq/messaging"
+import { useFirebase } from "~firebase/hook"
 
-function IndexPopup() {
-  const handlePing = async () => {
-    const resp = await sendToBackground({
-      name: "ping",
-      body: {
-        id: 123
-      }
-    })
-    console.log(resp)
-  }
+export default function IndexPopup() {
+  const { user, isLoading, onLogin, onLogout } = useFirebase()
 
-  const handleTs = async () => {
-    const resp = await sendToBackground({
-      name: "translate",
-      body: {
-        text: "apple"
-      }
-    })
-    console.log(resp)
-  }
   return (
-    <div>
-      <button onClick={handlePing}>Click</button>
-      <button onClick={handleTs}>Translate</button>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        padding: 16,
+        width: "300px"
+      }}>
+      <h1>
+        Welcome to your <a href="https://www.plasmo.com">Plasmo</a> Extension!
+      </h1>
+      {!user ? (
+        <button onClick={() => onLogin()}>Log in</button>
+      ) : (
+        <button onClick={() => onLogout()}>Log out</button>
+      )}
+      <div>
+        {isLoading ? "Loading..." : ""}
+        {!!user ? (
+          <div>
+            Welcome to Plasmo, {user.displayName} your email address is{" "}
+            {user.email}
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
+
+      <footer>Crafted by @PlasmoHQ</footer>
     </div>
   )
 }
-
-export default IndexPopup
