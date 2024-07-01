@@ -1,8 +1,8 @@
 {
-  "name": "translater",
-  "displayName": "Translater",
-  "version": "1.3",
-  "description": "切换源",
+  "name": "划词翻译",
+  "displayName": "划词翻译",
+  "version": "1.4",
+  "description": "修复bug",
   "author": "maybe",
   "scripts": {
     "dev": "plasmo dev",
